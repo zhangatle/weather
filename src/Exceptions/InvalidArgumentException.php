@@ -1,15 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zhang
- * Date: 2019/8/16
- * Email: zhangatle@gmail.com
+
+/*
+ * This file is part of the zhangatle/weather.
+ *
+ * (c) zhangatle <zhangatle@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 namespace Zhangatle\Weather\Exceptions;
 
-
 class InvalidArgumentException extends Exception
 {
-
 }

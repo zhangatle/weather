@@ -1,9 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zhang
- * Date: 2019/8/16
- * Email: zhangatle@gmail.com
+
+/*
+ * This file is part of the zhangatle/weather.
+ *
+ * (c) zhangatle <zhangatle@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 namespace Zhangatle\Weather\Tests;
@@ -76,7 +79,7 @@ class WeatherTest extends TestCase
     public function testGetHttpClient()
     {
         $w = new Weather('mock-key');
-        $this->assertInstanceOf(ClientInterface::class,$w->getHttpClient());
+        $this->assertInstanceOf(ClientInterface::class, $w->getHttpClient());
     }
 
     public function testSetGuzzleOptions()
@@ -87,7 +90,7 @@ class WeatherTest extends TestCase
         // 设置参数
         $w->setGuzzleOptions(['timeout' => 5000]);
 
-        $this->assertSame(5000,$w->getHttpClient()->getConfig('timeout'));
+        $this->assertSame(5000, $w->getHttpClient()->getConfig('timeout'));
     }
 
     public function testGetWeatherWithInvalidType()
@@ -98,7 +101,7 @@ class WeatherTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         // 断言异常消息为 'Invalid type value(base/all): foo'
         $this->expectExceptionMessage('Invalid type value(live/forecast): foo');
-        $w->getWeather('深圳','foo');
+        $w->getWeather('深圳', 'foo');
         $this->fail('Failed to assert getWeather throw exception with invalid argument');
     }
 
@@ -110,7 +113,7 @@ class WeatherTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         // 断言异常消息为 'Invalid response format: array'
         $this->expectExceptionMessage('Invalid response format: array');
-        $w->getWeather('深圳','forecast','array');
+        $w->getWeather('深圳', 'forecast', 'array');
         $this->fail('Failed to assert getWeather throw exception with invalid argument');
     }
 

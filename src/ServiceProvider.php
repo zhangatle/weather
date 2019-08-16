@@ -1,13 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zhang
- * Date: 2019/8/16
- * Email: zhangatle@gmail.com
+
+/*
+ * This file is part of the zhangatle/weather.
+ *
+ * (c) zhangatle <zhangatle@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 namespace Zhangatle\Weather;
-
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
@@ -15,13 +17,14 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
     public function register()
     {
-        $this->app->singleton(Weather::class,function (){
+        $this->app->singleton(Weather::class, function () {
             return new Weather(config('services.weather.key'));
         });
-        $this->app->alias(Weather::class,'weather');
+        $this->app->alias(Weather::class, 'weather');
     }
 
-    public function provides(){
-        return [Weather::class,'weather'];
+    public function provides()
+    {
+        return [Weather::class, 'weather'];
     }
 }
