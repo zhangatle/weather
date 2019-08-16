@@ -1,0 +1,28 @@
+{
+    "name": "zhangatle\/weather",
+    "description": "A Weather SDK",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zhangatle",
+            "email": "319126583@qq.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "phpunit/phpunit": "^8.3",
+        "mockery/mockery": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zhangatle\\Weather\\": "src"
+        }
+    },
+    "extra": {
+        "laravel":{
+            "providers":[
+                "Zhangatle\\Weather\\ServiceProvider"
+            ]
+        }
+    }
+}
